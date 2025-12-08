@@ -2,7 +2,7 @@
     "songs": [
         {
             "title": "Proto Test",
-            "file": "songs/prototest.dfpwm"
+            "file": "https://raw.githubusercontent.com/Arcadesys/cc-jukebox/ee471205c7a23caadb1093e38f41e8bfc266d480/songs/prototest.dfpwm"
         }
     ]
 }

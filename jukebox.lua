@@ -281,13 +281,20 @@ local function properAudioThread()
             if not handle then
                 if song.file:find("^http") then
                     handle = http.get(song.file, nil, true)
-                elseif fs.exists(song.file) then
-                    handle = fs.open(song.file, "rb")
+                else
+                    local path = song.file
+                    if not fs.exists(path) and shell then
+                        path = shell.resolve(song.file)
+                    end
+                    
+                    if fs.exists(path) then
+                        handle = fs.open(path, "rb")
+                    end
                 end
                 
                 if not handle then
                    state.is_playing = false
-                   os.queueEvent("ui_update", "File Error")
+                   os.queueEvent("ui_update", "File Error: " .. song.file)
                 end
             end
             
