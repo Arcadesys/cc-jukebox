@@ -131,6 +131,6 @@ if __name__ == "__main__":
         target = sys.argv[1]
     else:
         # Default for the current request
-        target = r"songs\Neon Nights and Velvet Dreams.mp3"
+        target = r"songs\neon_nights.mp3"
         
     process_file(target)
